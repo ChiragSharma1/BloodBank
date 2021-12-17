@@ -1,0 +1,26 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block pg_title %}
+   Blood Bank
+{% endblock pg_title %}
+
+{%block pg_style%}
+  <link rel = "stylesheet" href = {% static '/style/home.css' %}>
+{% endblock pg_style%}
+
+{% block content %}
+  
+  <div id="col1">
+    <h2> Enter Your City And Blood Group to Find The Blood You Need. </h2>
+        <form action="/results" autocomplete="off" id = "form1">
+            <input id="search" name="location" type="text" placeholder="Your City Name ">
+            <input id = "search" name = "blood" type = "text" placeholder= "Your Blood Group">
+            <input id="search_submit" value="Rechercher" type="submit">
+        </form>
+  </div>
+  <div id="col2">
+      <h2>Want to help other by Donating Blood?</h2>
+      <a href = "{% url 'donar_form'%}"><button class = "btn">Donate Here</button></a>
+  </div>
+
+{% endblock content %}

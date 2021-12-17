@@ -1,0 +1,32 @@
+{% extends 'basic.html' %}
+
+{% block pg_title %}
+    {{user.first_name}}
+{% endblock pg_title%}
+
+{% block pg_style %}
+    <style>
+        .cl1{
+            margin:2% 20%;
+            background-color:#EDEDED;
+        }
+    </style>
+{% endblock pg_style %}
+
+{% block content %}
+ <div class="cl1">
+    <h3> Name - {{user.first_name}} {{user.last_name}}</h1>
+    <br>
+    <h3> Blood Group - {{user.blood_group}}</h3>
+    <hr>
+    <h3> Gender - {{user.gender}}</h3>
+    <br>
+    <h3> Age - {{user.age}}</h3>
+    <hr>
+    <h3> City - {{user.city}}  |  State - {{user.state}}</h3>
+    <br>
+    <h3>Mobile - {{user.mobile}} </h3>
+
+
+ </div>
+{% endblock content %}

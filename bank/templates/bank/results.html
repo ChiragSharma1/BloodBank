@@ -1,0 +1,105 @@
+{% extends 'basic.html' %} 
+{% load static %}
+{% block pg_title %} Blood Bank{%endblock pg_title %} 
+{% block pg_style%} 
+<link rel="stylesheet" href = {%static '/style/results.css'%} > 
+{%endblock pg_style %} 
+{% block content%}
+<div class="col0">
+  <h2>City {{location}}</h2>
+  {% if blood != "" %}
+  <h2>Your Needed Blood Group is {{blood}}</h2>
+  {% else %}
+  <h2>You Didnt Enter The Blood Group You Need</h2>
+  {% endif %}
+</div>
+<div class="col1">
+  <div class="card text-center col-sm-4">
+    <div class="card-header">Individuals Count</div>
+    <div class="card-body">
+      <h2>{{cnt}}</h2>
+    </div>
+  </div>
+  <div class="card text-center col-sm-4">
+    <div class="card-header">Blood Banks Count</div>
+    <div class="card-body">
+      <h2>{{bloodbankcnt}}</h2>
+    </div>
+  </div>
+</div>
+<h2>Individuals That have same Blood Group</h2>
+<div class="col2">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Contact no.</th>
+        <th scope="col">Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in usersameblood %}
+      <tr>
+        <td>
+          <a href="{% url 'user' user.id%}"
+            >{{user.first_name}} {{user.last_name}}</a
+          >
+        </td>
+        <td>{{user.mobile}}</td>
+        <td>{{user.address}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<h2>Individuals that can also donate their Blood</h2>
+<div class="col2">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Contact no.</th>
+        <th scope="col">Address</th>
+        <th scope="col">Blood Group</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tbody>
+        {% for user in userscandonate %}
+        <tr>
+          <td>
+            <a href="{% url 'user' user.id%}"
+              >{{user.first_name}} {{user.last_name}}</a
+            >
+          </td>
+          <td>{{user.mobile}}</td>
+          <td>{{user.address}}</td>
+          <td>{{user.blood_group}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </tbody>
+  </table>
+</div>
+<h2>Blood Banks of your state</h2>
+<div class="col2">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">BloodBank Name</th>
+        <th scope="col">Contact no.</th>
+        <th scope="col">Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for bank in bloodbank %}
+      <tr>
+        <td>{{bank.name}}</td>
+        <td>{{bank.mobile}}</td>
+        <td>{{bank.address}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{%endblock content%}

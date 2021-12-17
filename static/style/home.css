@@ -1,0 +1,83 @@
+body{
+  background: linear-gradient(to right, #22c1c3, #fdbb2d);
+}
+
+#col1{
+    height:400px;
+    width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+#col1 h2{
+   color: #555;
+   margin-bottom: 50px;
+   font-family: 'Lato';
+   font-weight: 100;
+   font-size: 50px;
+}
+#form1{
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+input[type="text"] {
+    height: 60px;
+    font-size: 55px;
+    font-family: "Lato";
+    font-weight: 100;
+    border: none;
+    outline: none;
+    color: #555;
+    padding: 3px;
+    margin-right: 60px;
+    background: none;
+    width: 500px;
+    z-index: 1;
+    border-bottom: 1px solid #BBB;
+    cursor: text;
+  }
+
+input[type="submit"]{
+    height: 67px;
+    width: 63px;
+    color:red;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRFU1NT9fX1lJSUXl5e1dXVfn5+c3Nz6urqv7+/tLS0iYmJqampn5+fysrK39/faWlp////Vi4ZywAAABF0Uk5T/////////////////////wAlrZliAAABLklEQVR42rSWWRbDIAhFHeOUtN3/ags1zaA4cHrKZ8JFRHwoXkwTvwGP1Qo0bYObAPwiLmbNAHBWFBZlD9j0JxflDViIObNHG/Do8PRHTJk0TezAhv7qloK0JJEBh+F8+U/hopIELOWfiZUCDOZD1RADOQKA75oq4cvVkcT+OdHnqqpQCITWAjnWVgGQUWz12lJuGwGoaWgBKzRVBcCypgUkOAoWgBX/L0CmxN40u6xwcIJ1cOzWYDffp3axsQOyvdkXiH9FKRFwPRHYZUaXMgPLeiW7QhbDRciyLXJaKheCuLbiVoqx1DVRyH26yb0hsuoOFEPsoz+BVE0MRlZNjGZcRQyHYkmMp2hBTIzdkzCTc/pLqOnBrk7/yZdAOq/q5NPBH1f7x7fGP4C3AAMAQrhzX9zhcGsAAAAASUVORK5CYII=) center center no-repeat;
+    text-indent: -10000px;
+    border: none;
+    opacity: 0.4;
+    cursor: pointer;
+    transition: .1s;
+  }
+
+#col2{
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction:column ;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 226, 226);
+  }
+
+#col2 h2{
+  color:#555;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+#col2 .btn{
+  background-color: rgb(94, 94, 94);
+  color:white;
+  padding: 4px 7px;
+  border-radius: 10px;
+  margin: 2px;
+}
+#col2 .btn:hover{
+  background-color: red;
+  transition: 1s;
+  margin: 1px;
+  padding:5px 8px;
+}

@@ -1,0 +1,37 @@
+.col0{
+    height:100px;
+    display: flex;
+    flex-direction: column;
+
+    align-items:center;
+    background-color: rgb(255, 226, 226);
+}
+.col0 h2{
+    color:#555;
+    font-family: 'Lato';
+    font-weight: 100;
+    padding-left: 20px;
+}
+
+.col1{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(255, 226, 226);
+}
+
+.col1 .card{
+    margin:20px 50px;
+    background-color:rgb(250, 133, 133);
+
+} 
+h2{
+    text-align: center;
+}
+
+.col2 {
+    padding:20px 50px;
+    margin:20px 50px;
+    height: 230px;
+    overflow: auto;
+    text-align: justify;
+}

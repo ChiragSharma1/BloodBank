@@ -1,0 +1,15 @@
+
+.main{
+    margin:5% 10%;
+    border:1px #333 solid;
+}
+input{
+    border-radius: 10px;
+    display: block;
+    justify-content: center;
+}
+
+.cc2 h6{
+    display: inline-block;
+    margin-left: 300px;
+}

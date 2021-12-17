@@ -1,0 +1,70 @@
+{% extends 'basic.html' %}
+{%load static%}
+{% block pg_title %}
+    Blood Bank
+{% endblock pg_title%}
+{% block pg_style %}
+  <style>
+    .col1{
+        margin:5% 10%;
+        padding:5% 5%;
+        box-shadow:5px 10px 18px #888888;
+        border-radius:10px;
+    }
+    .cc2 h6{
+        display:inline-block;
+        margin-right: 250px;
+    }
+    .cc4 h6{
+        display:inline-block;
+        margin-right:400px;
+    }
+    input[type="submit"]{
+        padding:5px 10px;
+        color:white;
+        background-color:rgb(0,123,255);
+        border:0px;
+        border-radius:4px;
+        position:absolute;
+        left:70%;
+    }
+  </style>
+{% endblock pg_style %}
+{% block content %}
+ <div class = "col1">
+    <form action = "/donarform/" method = "POST">
+       {% csrf_token %}
+        <div class = "cc1">
+           <h6>Name</h6>
+           {{form.first_name}}
+           {{form.last_name}}
+        </div>
+        <br>
+        <div class = "cc2">
+           <h6>Age</h6> <h6>Gender</h6> <h6>Blood Group</h6><br>
+           {{form.age}}
+            {{form.gender}}
+            {{form.blood_group}}
+        </div>
+        <br>
+        <div class = "cc3">
+        <h6>Address</h6>
+        {{form.address}}
+        </div>
+        <br>
+        <div class = "cc4">
+            <h6>City</h6> <h6>State</h6>
+            {{form.city}}
+            {{form.state}}
+        </div>
+        <br>
+        <div class = "cc5">
+            <h6>Mobile Number</h6>
+           {{form.mobile}} 
+        </div>
+        <br>
+        <input type = "submit" value = "Submit">
+    </form>
+ </div>
+
+{% endblock content %}
