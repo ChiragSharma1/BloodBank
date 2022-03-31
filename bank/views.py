@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from BloodBank.settings import BLOOD_BANK_API_KEY
 from .models import User
 # Create your views here.
 import requests
@@ -36,7 +37,7 @@ def results(request):
     print(user_can_donate)
     bldcnt = user_same_blood.count()
     response = requests.get(
-        'https://api.data.gov.in/resource/fced6df9-a360-4e08-8ca0-f283fc74ce15?api-key=579b464db66ec23bdd00000167e6cabfab3040ea41287770d6615098&limit=2800&format=json&filters[__city]='+location).json()['records']
+        'https://api.data.gov.in/resource/fced6df9-a360-4e08-8ca0-f283fc74ce15?api-key=' + BLOOD_BANK_API_KEY + '&limit=2800&format=json&filters[__city]='+location).json()['records']
     # print(response)
     bloodbank = []
     # adding map
@@ -102,7 +103,7 @@ def donarform(request):
 def get_bank(request, bankid):
     bankid = str(bankid)
     bank = requests.get(
-        'https://api.data.gov.in/resource/fced6df9-a360-4e08-8ca0-f283fc74ce15?api-key=579b464db66ec23bdd00000167e6cabfab3040ea41287770d6615098&limit=2800&format=json&filters[sr_no]='+bankid).json()['records'][0]
+        'https://api.data.gov.in/resource/fced6df9-a360-4e08-8ca0-f283fc74ce15?api-key=' + BLOOD_BANK_API_KEY + '&limit=2800&format=json&filters[sr_no]='+bankid).json()['records'][0]
     longitude = float(bank['__longitude'])
     latitude = float(bank['__latitude'])
     m = folium.Map(location=[latitude, longitude], zoom_start=13)
