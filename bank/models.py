@@ -21,6 +21,7 @@ class User(models.Model):
     state = models.CharField(max_length=50, null=True, default='')
     can_donate = models.BooleanField(null=True, default=False)
     mobile = models.CharField(null=True, default='', max_length=13)
+    email = models.EmailField(null=True, default='', max_length=100)
 
     def name(self):
         return f'{self.first_name} {self.last_name}'

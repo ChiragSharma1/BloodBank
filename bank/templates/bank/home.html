@@ -9,7 +9,14 @@
 {% endblock pg_style%}
 
 {% block content %}
-  
+  {% if messages %}
+    {% for message in messages %}
+    <div class="alert text-center alert-primary alert-dismissible fade show" role="alert">
+      <strong>Great !</strong>{{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+  {% endif %}
   <div id="col1">
     <h2> Enter Your City And Blood Group to Find The Blood You Need. </h2>
         <form action="/results" autocomplete="off" id = "form1">

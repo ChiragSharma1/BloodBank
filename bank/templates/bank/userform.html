@@ -19,6 +19,10 @@
         display:inline-block;
         margin-right:400px;
     }
+    .cc5 h6{
+        display:inline-block;
+        margin-right:325px;
+    }
     input[type="submit"]{
         padding:5px 10px;
         color:white;
@@ -53,16 +57,28 @@
         </div>
         <br>
         <div class = "cc4">
-            <h6>City</h6> <h6>State</h6>
+            <h6>City</h6> <h6>State</h6><br>
             {{form.city}}
             {{form.state}}
         </div>
         <br>
         <div class = "cc5">
-            <h6>Mobile Number</h6>
+            <h6>Mobile Number</h6><h6>Email</h6><br>
            {{form.mobile}} 
+           {{form.email}}
         </div>
         <br>
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %} 
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+
+
         <input type = "submit" value = "Submit">
     </form>
  </div>
