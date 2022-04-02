@@ -38,18 +38,22 @@ class DonarForm(ModelForm):
             'city': TextInput(attrs={
                 'placeholder': 'City',
                 'class': 'form-control',
-                'style': 'max-width:200px;display:inline;'
+                'style': 'max-width:300px;display:inline;'
             }),
             'state': TextInput(attrs={
                 'placeholder': 'State',
                 'class': 'form-control',
-                'style': 'max-width:200px;display:inline;margin-left:220px'
+                'style': 'max-width:300px;display:inline;margin-left:120px;'
             }),
             'mobile': TextInput(attrs={
-                'placeholder': 'State',
+                'placeholder': 'Mobile Number',
                 'class': 'form-control',
-                'style': 'max-width:250px;',
-                'pointer-events': 'none'
+                'style': 'max-width:300px;display:inline;'
+            }),
+            'email': TextInput(attrs={
+                'placeholder': 'Email',
+                'class': 'form-control',
+                'style': 'max-width:300px;display:inline;margin-left:120px;'
             })
 
         }

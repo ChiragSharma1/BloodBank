@@ -128,3 +128,9 @@ STATICFILES_DIRS = [
 
 
 BLOOD_BANK_API_KEY = config('BLOOD_BANK_API_KEY', default='')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = config('MAIL_ACCOUNT', default="")
+EMAIL_HOST_PASSWORD = config('MAIL_PASSWORD', default="")

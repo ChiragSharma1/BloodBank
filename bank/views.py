@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib import messages
 from BloodBank.settings import BLOOD_BANK_API_KEY
 from .models import User
 # Create your views here.
@@ -6,6 +9,7 @@ import requests
 import json
 from .forms import DonarForm
 import folium
+
 
 donarblood = {
     'A+': ['A-', 'O+', 'O-'],
@@ -126,3 +130,33 @@ def get_bank(request, bankid):
         'm': m,
         'bank': bank_details,
     })
+
+
+def emailSend(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        address = request.POST.get('address')
+        mobile_number = request.POST.get('mobile')
+        bloodGroup = request.POST.get('bloodGroup')
+        state = request.POST.get('state')
+        city = request.POST.get('city')
+        print(bloodGroup)
+        subject = "Blood Required"
+        message = "Here's a person who needs " + bloodGroup + "\n Contact detais are: \n name = " + name + "\n email = "+email + "\n Mobile Number = " + \
+            mobile_number + "\n address = " + address + \
+            "\n\n You can contact them if you want to donate blood to them. "
+        email_from = settings.EMAIL_HOST_USER
+        location = city.title()
+        user_at_location = User.objects.filter(city__iexact=location)
+        print(user_at_location)
+        user_same_blood = user_at_location.filter(
+            blood_group__iexact=bloodGroup)
+        print(user_same_blood)
+        recipient_list = []
+        for usr in user_same_blood:
+            recipient_list.append(usr.email)
+        send_mail(subject, message, email_from, recipient_list)
+        messages.add_message(request, messages.SUCCESS,
+                             'Your details are shared with those persons now they can contact you if they are willing/available to donate blood.')
+    return redirect('home')
